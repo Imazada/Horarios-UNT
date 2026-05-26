@@ -6,8 +6,8 @@ services:
     env: node
     plan: free
     branch: main
-    buildCommand: npm install --include=dev && npm exec --yes --package=prisma@5.22.0 prisma db push && npm run build
-    startCommand: npm start
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm exec --yes --package=prisma@5.22.0 prisma db push --skip-generate && npm start
     healthCheckPath: /
     envVars:
       - key: DATABASE_URL
